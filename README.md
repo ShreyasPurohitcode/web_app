@@ -4,14 +4,14 @@ This project is a simple web application that I've used to learn and practice so
 
 ## Overview
 
-The "web_app" project helped me get hands-on experience with containerization, version control, and CI/CD pipelines. The goal was to create a basic application that could be consistently deployed across different environments with minimal manual intervention.
+The "Web App" project helped me get hands-on experience with containerization, version control, and CI/CD pipelines. The goal was to create a basic application that could be consistently deployed across different environments with minimal manual intervention.
 
 ## Technologies Used
 
-- **Python** and **Flask**: For the web application itself.
-- **Docker**: To containerize the application.
-- **GitHub**: For version control.
-- **GitHub Actions**: To automate the CI/CD pipeline.
+-   **Python** and **Flask**: For the web application itself.
+-   **Docker**: To containerize the application.
+-   **GitHub**: For version control.
+-   **GitHub Actions**: To automate the CI/CD pipeline.
 
 ## DevOps Workflow
 
@@ -57,27 +57,27 @@ I set up a basic CI/CD pipeline with GitHub Actions that builds the Docker image
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ main ]
+    push:
+        branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
 
-    - name: Login to DockerHub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+            - name: Login to DockerHub
+              uses: docker/login-action@v2
+              with:
+                  username: ${{ secrets.DOCKER_USERNAME }}
+                  password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: shreyasp13/web_app:latest
+            - name: Build and push
+              uses: docker/build-push-action@v2
+              with:
+                  push: true
+                  tags: shreyasp13/web_app:latest
 ```
 
 ## Conclusion
